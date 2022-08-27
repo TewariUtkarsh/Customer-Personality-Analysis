@@ -1,0 +1,124 @@
+name: Build and push Docker Image to Docker Hub and Deploy on Heroku and AWS parallely.
+on:
+  push:
+    branches: [main]
+
+jobs:
+  heroku_build:
+    name: Build, Push and Release a Docker container to Heroku.
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+        # The following step will build a custom docker image of our project and push to Heroku container
+      - name: Build, Push and Release a Docker container to Heroku. # Your custom step name
+        uses: gonuit/heroku-docker-deploy@v1.3.3 # GitHub action name
+        with:
+          # Below you must provide variables for your Heroku app.
+
+          # The email address associated with your Heroku account.
+          # If you don't want to use repository secrets (which is recommended) you can do:
+          # email: my.email@example.com
+          email: ${{ secrets.HEROKU_EMAIL }}
+
+          # Heroku API key associated with provided user's email.
+          # Api Key is available under your Heroku account settings.
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+
+          # Name of the heroku application to which the build is to be sent.
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+
+          # (Optional, default: "./")
+          # Dockerfile directory.
+          # For example, if you have a Dockerfile in the root of your project, leave it as follows:
+          dockerfile_directory: ./
+
+          # NOTE: HEROKU SETS A Environment VAR FOR I.E PORT=8080 or 330567
+          # (Optional, default: "Dockerfile")
+          # Dockerfile name.
+          dockerfile_name: Dockerfile.heroku
+
+          # (Optional, default: "")
+          # Additional options of docker build command.
+          docker_options: "--no-cache"
+
+          # (Optional, default: "web")
+          # Select the process type for which you want the docker container to be uploaded.
+          # By default, this argument is set to "web".
+          # For more information look at https://devcenter.heroku.com/articles/process-model
+          process_type: web
+
+
+  aws_build:
+    name: Build and Push Docker Image to Docker Hub and AWS EB
+    runs-on: ubuntu-latest
+    steps:
+
+      # Check-out your repository.
+      - name: Checkout
+        uses: actions/checkout@v2
+
+
+### ⬇ IMPORTANT PART ⬇ ###
+
+      ### QEMU is an open source machine emulator and virtualizer. It allows users to to build
+      ### ARM CUDA binaries on your x86 machine without needing a cross compiler
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+      
+
+      ### Docker Buildx is a CLI plugin that extends the docker command with the full support 
+      ### of the features provided by Moby BuildKit builder toolkit. It provides the same user 
+      ### experience as docker build with many new features like creating scoped builder instances 
+      ### and building against multiple nodes concurrently.
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Login to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      
+      - name: Build and Push
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: |
+            tewariutkarsh22/Customer-Personality-Analysis:latest
+
+
+# FOR AWS: .github/workflows/main.yml continued
+
+      - name: Get Timestamp
+        uses: gerred/actions/current-time@master
+        id: current-time
+
+      - name: Run String Replace
+        uses: frabert/replace-string-action@master
+        id: format-time
+        with:
+          pattern: '[:\.]+'
+          string: "${{ steps.current-time.outputs.time }}"
+          replace-with: '-'
+          flags: 'g'
+
+      - name: Generate Deployment Package
+        run: zip -r customerpersonalityanalysis.zip .
+
+      - name: Deploy to AWS EB
+        uses: einaregilsson/beanstalk-deploy@v16
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: ${{ secrets.AWS_APPLICATION_NAME }}
+          environment_name: ${{ secrets.AWS_ENVIRONMENT_NAME }}
+          version_label: "Customer-Personality-Analysis${{ steps.format-time.outputs.replaced }}"
+          region: us-west-2
+          deployment_package: customerpersonalityanalysis.zip
+
+
