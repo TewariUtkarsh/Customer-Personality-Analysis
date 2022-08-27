@@ -13,9 +13,10 @@ def get_requirments_packages():
         packages=[]
         with open(REQUIEMENTS_FILE_PATH, 'r') as req:
             for p in req.readlines():
-                packages.append(p.replace('\n',''))
-        return packages[:-1]
+                if p!=' ' and p!='' and p!='\n':
+                    packages.append(p.replace('\n',''))
 
+        return packages[:-1]
     else:
         print("Requirements file does not exist")
 
