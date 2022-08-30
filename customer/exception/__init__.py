@@ -55,8 +55,8 @@ class CustomerException(Exception):
         file_name= exec_tb.tb_frame.f_code.co_filename
         custom_error_message= f"""
         Error Occurred:
-        File Name: [{file_name}]
-        Line Num : [{try_block_lineno}]
+        File Path: [{file_name}]
+        Line Number: [{try_block_lineno}]
         Exception Block: [{exception_block_lineno}]
         Error Message  : {error_message}
         """
