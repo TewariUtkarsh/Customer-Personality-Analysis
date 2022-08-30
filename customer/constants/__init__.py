@@ -57,9 +57,9 @@ LABEL_COLUMN= 'Response'
 
 
 # Constants for Data Validation
-# DATA_VALIDATION_CONFIG_KEY= 'data_validation_config'
-# DATA_VALIDATION_SCHEMA_FILE_PATH_KEY= 'schema_file_path'
-# DATA_VALIDATION_REPORT_FILE_KEY= 'report_file_path'
-# DATA_VALIDATION_REPORT_PAGE_FILE_KEY= 'report_page_file_path'
-# DATA_VALIDATION_ARTIFACT_DIR= 'data_validation'
+DATA_VALIDATION_CONFIG_KEY= 'data_validation_config'
+DATA_VALIDATION_SCHEMA_FILE_PATH_KEY= 'schema_file_path'
+DATA_VALIDATION_REPORT_FILE_KEY= 'report_file_path'
+DATA_VALIDATION_REPORT_PAGE_FILE_KEY= 'report_page_file_path'
+DATA_VALIDATION_ARTIFACT_DIR= 'data_validation'
 
