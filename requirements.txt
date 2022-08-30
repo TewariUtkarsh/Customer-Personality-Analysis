@@ -1,9 +1,12 @@
+scipy
+numpy
 flask
 flask_cors
 gunicorn
-numpy
 pandas 
 matplotlib
 seaborn
 sklearn
+PyYAML
+six
 -e .
