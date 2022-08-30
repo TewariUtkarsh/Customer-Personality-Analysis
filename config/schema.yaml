@@ -1,0 +1,107 @@
+features:
+  ID: int
+  Year_Birth: int
+  Education: object
+  Marital_Status: object
+  Income: float
+  Kidhome: int
+  Teenhome: int
+  Dt_Customer: object
+  Recency: int
+  MntWines: int
+  MntFruits: int
+  MntMeatProducts: int
+  MntFishProducts: int
+  MntSweetProducts: int
+  MntGoldProds: int
+  NumDealsPurchases: int
+  NumWebPurchases: int
+  NumCatalogPurchases: int
+  NumStorePurchases: int
+  NumWebVisitsMonth: int
+  AcceptedCmp3: int
+  AcceptedCmp4: int
+  AcceptedCmp5: int
+  AcceptedCmp1: int
+  AcceptedCmp2: int
+  Complain: int
+  Z_CostContact: int
+  Z_Revenue: int
+  
+label:
+  Response: int
+
+continuous_features:
+  - ID
+  - Year_Birth
+  - Income
+  - Kidhome
+  - Teenhome
+  - Recency
+  - MntWines
+  - MntFruits
+  - MntMeatProducts
+  - MntFishProducts
+  - MntSweetProducts
+  - MntGoldProds
+  - NumDealsPurchases
+  - NumWebPurchases
+  - NumCatalogPurchases
+  - NumStorePurchases
+  - NumWebVisitsMonth
+
+discrete_features:
+  - AcceptedCmp3
+  - AcceptedCmp4
+  - AcceptedCmp5
+  - AcceptedCmp1
+  - AcceptedCmp2
+  - Complain
+  - Z_CostContact
+  - Z_Revenue
+  
+categorical_features:
+  - Education
+  - Marital_Status
+  - Dt_Customer
+
+domain_values:
+  Education:
+    - Graduation
+    - PhD            
+    - Master         
+    - 2n Cycle       
+    - Basic
+  Marital_Status:
+    - Married     
+    - Together    
+    - Single      
+    - Divorced    
+    - Widow       
+    - Alone       
+    - Absurd      
+    - YOLO
+  AcceptedCmp3:
+    - 0
+    - 1
+  AcceptedCmp4:
+    - 0
+    - 1
+  AcceptedCmp5:
+    - 0
+    - 1
+  AcceptedCmp1:
+    - 0
+    - 1
+  AcceptedCmp2:
+    - 0
+    - 1
+  Complain:
+    - 0
+    - 1
+  Z_CostContact:
+    - 3
+  Z_Revenue:
+    - 1
+
+
