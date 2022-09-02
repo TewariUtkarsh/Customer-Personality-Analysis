@@ -13,6 +13,6 @@ DataIngestionConfig= namedtuple('DataIngestionConfig',
 
 
 # Data Validation Config
-# DataValidationConfig= namedtuple('DataValidationConfig',
-# ['schema_file_path', 'report_file_path', 'report_page_file_path'])
+DataValidationConfig= namedtuple('DataValidationConfig',
+['schema_file_path', 'report_file_path', 'report_page_file_path'])
 
