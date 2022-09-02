@@ -7,6 +7,6 @@ DataIngestionArtifact= namedtuple('DataIngestionArtifact',
 
 
 # Data Validation Artifact
-# DataValidationArtifact= namedtuple('DataValidationArtifact',
-# ['is_validated','message', 'report_file_path' ,'report_page_file_path','schema_file_path'])
+DataValidationArtifact= namedtuple('DataValidationArtifact',
+['is_validated','message', 'report_file_path' ,'report_page_file_path','schema_file_path'])
 
