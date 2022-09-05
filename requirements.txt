@@ -9,4 +9,5 @@ seaborn
 sklearn
 PyYAML
 six
+evidently
 -e .
