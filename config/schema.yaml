@@ -1,35 +1,38 @@
+data_filename: 'marketing_campaign.csv'
+
 features:
-  ID: int
-  Year_Birth: int
+  ID: int64
+  Year_Birth: int64
   Education: object
   Marital_Status: object
   Income: float
-  Kidhome: int
-  Teenhome: int
+  Kidhome: int64
+  Teenhome: int64
   Dt_Customer: object
-  Recency: int
-  MntWines: int
-  MntFruits: int
-  MntMeatProducts: int
-  MntFishProducts: int
-  MntSweetProducts: int
-  MntGoldProds: int
-  NumDealsPurchases: int
-  NumWebPurchases: int
-  NumCatalogPurchases: int
-  NumStorePurchases: int
-  NumWebVisitsMonth: int
-  AcceptedCmp3: int
-  AcceptedCmp4: int
-  AcceptedCmp5: int
-  AcceptedCmp1: int
-  AcceptedCmp2: int
-  Complain: int
-  Z_CostContact: int
-  Z_Revenue: int
-  
+  Recency: int64
+  MntWines: int64
+  MntFruits: int64
+  MntMeatProducts: int64
+  MntFishProducts: int64
+  MntSweetProducts: int64
+  MntGoldProds: int64
+  NumDealsPurchases: int64
+  NumWebPurchases: int64
+  NumCatalogPurchases: int64
+  NumStorePurchases: int64
+  NumWebVisitsMonth: int64
+  AcceptedCmp3: int64
+  AcceptedCmp4: int64
+  AcceptedCmp5: int64
+  AcceptedCmp1: int64
+  AcceptedCmp2: int64
+  Complain: int64
+  Z_CostContact: int64
+  Z_Revenue: int64
+  Response: int64
+
 label:
-  Response: int
+  Response: int64
 
 continuous_features:
   - ID
@@ -102,6 +105,8 @@ domain_values:
   Z_CostContact:
     - 3
   Z_Revenue:
+    - 11
+  Response:
+    - 0
     - 1
-
 
