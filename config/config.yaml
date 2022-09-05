@@ -10,6 +10,15 @@ data_ingestion_config:
   ingested_test_dir: 'test'
 
 data_validation_config:
+  schema_file_dir: 'config'
   schema_file_path: 'schema.yaml'
   report_file_path: 'report.json'
   report_page_file_path: 'report.html'
+
+data_transformation_config:
+  transformed_data_dir: 'transformed_data'
+  transformed_train_dir: 'train'
+  transformed_test_dir: 'test'
+  preprocessed_dir: 'preprocessed'
+  preprocessed_model_object_file_name: 'preprocessed.pkl'
+
