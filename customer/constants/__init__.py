@@ -47,6 +47,10 @@ SCHEMA_FILE_PATH= os.path.join(
     CONFIG_DIR,
     SCHEMA_FILE_NAME
 )
+
+SCHEMA_FILE_DATA_FILENAME= 'data_filename'
+HISTORY_REPORT_DIR= 'history_report'
+
 SCHEMA_FILE_FEATURES_KEY= 'features'
 SCHEMA_FILE_LABEL_KEY= 'label'
 SCHEMA_FILE_CONTINUOUS_FEATURES_KEY= 'continuous_features'
@@ -58,8 +62,24 @@ LABEL_COLUMN= 'Response'
 
 # Constants for Data Validation
 DATA_VALIDATION_CONFIG_KEY= 'data_validation_config'
-DATA_VALIDATION_SCHEMA_FILE_PATH_KEY= 'schema_file_path'
-DATA_VALIDATION_REPORT_FILE_KEY= 'report_file_path'
-DATA_VALIDATION_REPORT_PAGE_FILE_KEY= 'report_page_file_path'
 DATA_VALIDATION_ARTIFACT_DIR= 'data_validation'
+DATA_VALIDATION_SCHEMA_FILE_DIR= 'schema_file_dir'
+DATA_VALIDATION_SCHEMA_FILE_PATH= 'schema_file_path'
+DATA_VALIDATION_REPORT_FILE_PATH= 'report_file_path'
+DATA_VALIDATION_REPORT_PAGE_FILE_PATH= 'report_page_file_path'
+EVIDENTLY_DATA_DRIFT_KEY= 'data_drift'
+EVIDENTLY_METRICS_KEY= 'metrics'
+EVIDENTLY_DATA_KEY= 'data'
+EVIDENTLY_DATASET_DRIFT_KEY= 'dataset_drift'
+
+
+# # Constants for Data Transformation
+# DATA_TRANSFORMATION_CONFIG_KEY= 'data_transformation_config'
+# DATA_TRANSFORMATION_ARTIFACT_DIR= 'data_transformation'
+# DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR_KEY= 'transformed_data_dir'
+# DATA_TRANSFORMATION_TRANSFORMED_TRAIN_DIR_KEY= 'transformed_train_dir'
+# DATA_TRANSFORMATION_TRANSFORMED_TEST_DIR_KEY= 'transformed_test_dir'
+# DATA_TRANSFORMATION_TRANSFORMED_PREPROCESSED_DIR_KEY= 'preprocessed_dir'
+# DATA_TRANSFORMATION_TRANSFORMED_PREPROCESSED_MODEL_FILENAME_KEY= 'preprocessed_model_object_file_name'
+
 
