@@ -32,7 +32,7 @@ features:
   Response: int64
 
 label:
-  Response: int64
+  Response
 
 continuous_features:
   - ID
@@ -40,6 +40,7 @@ continuous_features:
   - Income
   - Kidhome
   - Teenhome
+  - Dt_Customer
   - Recency
   - MntWines
   - MntFruits
@@ -52,6 +53,8 @@ continuous_features:
   - NumCatalogPurchases
   - NumStorePurchases
   - NumWebVisitsMonth
+  - Z_CostContact
+  - Z_Revenue
 
 discrete_features:
   - AcceptedCmp3
@@ -60,13 +63,10 @@ discrete_features:
   - AcceptedCmp1
   - AcceptedCmp2
   - Complain
-  - Z_CostContact
-  - Z_Revenue
   
 categorical_features:
   - Education
   - Marital_Status
-  - Dt_Customer
 
 domain_values:
   Education:
