@@ -10,4 +10,6 @@ sklearn
 PyYAML
 six
 evidently
+dill
+kneed
 -e .
