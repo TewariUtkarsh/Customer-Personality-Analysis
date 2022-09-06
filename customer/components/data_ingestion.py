@@ -50,7 +50,7 @@ class DataIngestion:
 
             data= read_csv_file(raw_data_filepath, sep=';')
     
-            stratified= StratifiedShuffleSplit(n_splits=2, test_size=0.2, random_state=6)
+            stratified= StratifiedShuffleSplit(n_splits=2, test_size=0.2, random_state=1)
 
             stratified_train = None 
             stratified_test = None
