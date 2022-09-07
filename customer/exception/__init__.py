@@ -58,7 +58,7 @@ class CustomerException(Exception):
         File Path: [{file_name}]
         Line Number: [{try_block_lineno}]
         Exception Block: [{exception_block_lineno}]
-        Error Message  : {error_message}
+        Error Message  : [{error_message}]
         """
         return custom_error_message
 
