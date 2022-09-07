@@ -8,7 +8,7 @@ from customer.exception import CustomerException
 from customer.logger import logging
 from customer.entity.config_entity import DataTransformationConfig
 from customer.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact, DataTransformationArtifact
-from customer.utils.util import csv_to_df, read_yaml_file, save_numpy_data, save_model_object
+from customer.utils.util import load_data, read_yaml_file, save_numpy_data, save_model_object
 from customer.constants import *
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.compose import ColumnTransformer
@@ -159,7 +159,7 @@ class DataTransformation:
             raise CustomerException(e, sys) from e
 
     
-    def get_preprocessed_model_object(self):
+    def get_preprocessed_model_object(self) -> Pipeline:
         try:
             continuous_columns= self.schema_file_content[SCHEMA_FILE_CONTINUOUS_FEATURES_KEY]
             discrete_columns= self.schema_file_content[SCHEMA_FILE_DISCRETE_FEATURES_KEY]
@@ -211,8 +211,8 @@ class DataTransformation:
             train_data_filepath= self.data_ingestion_artifact.train_data_filepath 
             test_data_filepath= self.data_ingestion_artifact.test_data_filepath
 
-            train_df= csv_to_df(filepath=train_data_filepath)
-            test_df= csv_to_df(filepath=test_data_filepath)
+            train_df= load_data(data_filepath=train_data_filepath, schema_filepath=self.data_validation_artifact.schema_file_path)
+            test_df= load_data(data_filepath=test_data_filepath, schema_filepath=self.data_validation_artifact.schema_file_path)
 
             label_column= LABEL_COLUMN
             x_train_data= train_df.drop(columns=[label_column])
