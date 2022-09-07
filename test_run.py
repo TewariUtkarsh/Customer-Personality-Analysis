@@ -32,3 +32,5 @@ if __name__=='__main__':
     
     p= Pipeline()
     print(p.run_pipeline())
+
+    
