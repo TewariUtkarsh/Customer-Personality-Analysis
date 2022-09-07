@@ -28,7 +28,7 @@ def index():
 if __name__=='__main__':
     # app.run(debug=True)
     # c= Configuration()
-    # print(c.get_data_validation_config())
+    # print(c.get_model_trainer_config())
+    
     p= Pipeline()
-
     print(p.run_pipeline())
