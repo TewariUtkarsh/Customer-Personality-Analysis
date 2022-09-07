@@ -226,14 +226,14 @@ class DataValidation:
             config_file_content= config.config_file_info
 
             training_pipeline_config= config.get_training_pipeline_configuration()
-            training_artifact_dir= training_pipeline_config.training_artifact_dir
+            root_artifact_dir= training_pipeline_config.root_artifact_dir
 
 
 
             data_ingestion_config_info= config_file_content[DATA_INGESTION_CONFIG_KEY]
 
             data_ingestion_artifact_dir= os.path.join(
-                training_artifact_dir,
+                root_artifact_dir,
                 DATA_INGESTION_ARTIFACT_DIR
             )
 
