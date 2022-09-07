@@ -1,6 +1,6 @@
 training_pipeline_config:
   pipeline_name: 'customer'
-  training_artifact_dir: 'artifacts'
+  root_artifact_dir: 'artifacts'
 
 data_ingestion_config:
   download_data_url: 'https://raw.githubusercontent.com/amankharwal/Website-data/master/marketing_campaign.csv'
@@ -22,3 +22,9 @@ data_transformation_config:
   preprocessed_dir: 'preprocessed'
   preprocessed_model_object_file_name: 'preprocessed.pkl'
 
+model_trainer_config:
+  trained_model_dir: 'trainied_model'
+  trained_model_name: 'model.pkl'
+  base_accuracy: 0.60
+  model_config_dir: 'config'
+  model_config_filename: 'model.yaml'
