@@ -196,12 +196,12 @@ class DataTransformation:
                 ('categorical_pipeline', categorical_pipeline, categorical_columns)
             ])
 
-            preprocessing_model_object=Pipeline(steps=[
-                ('preprocessing', preprocessing),
-                ('DimensionalityReduction', DimensionalityReduction())
-            ])
+            # preprocessing_model_object=Pipeline(steps=[
+            #     ('preprocessing', preprocessing),
+            #     ('DimensionalityReduction', DimensionalityReduction())
+            # ])
 
-            return preprocessing_model_object
+            return preprocessing
         except Exception as e:
             raise CustomerException(e, sys) from e
 
