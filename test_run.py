@@ -28,9 +28,12 @@ def index():
 if __name__=='__main__':
     # app.run(debug=True)
     # c= Configuration()
-    # print(c.get_model_trainer_config())
+    # print(c.get_model_pusher_config())
     
+    logging.info('Starting Pipeline')
     p= Pipeline()
-    print(p.run_pipeline())
+    # print(p.start())
+    p.run_pipeline()
+    logging.info('Pipeline Completed')
 
     
