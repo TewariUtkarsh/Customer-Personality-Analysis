@@ -1,0 +1,27 @@
+grid_search_cv:
+  module: sklearn.model_selection
+  class: GridSearchCV
+  params:
+    cv: 5
+    verbose: 2
+model_selection:
+  model_0:
+    module: sklearn.linear_model
+    class: LogisticRegression
+    params:
+      fit_intercept: true
+    grid_search_params:
+      penalty:
+      - l1
+      - l2
+      - elasticnet
+  model_1:
+    module: sklearn.ensemble
+    class: RandomForestClassifier
+    params:
+      min_sample_leaf: 2
+    grid_search_params:
+      min_samples_leaf:
+      - 3
+      - 4
+      - 5
